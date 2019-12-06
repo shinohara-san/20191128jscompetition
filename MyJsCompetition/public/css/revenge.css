@@ -1,0 +1,242 @@
+*{
+  padding:0;
+  margin:0;
+}
+
+.hide{
+ /* visibility: hidden; */
+ visibility: hidden; top: -100px; left: -100px;
+}
+
+body{
+  background: rgb(250, 250, 179);
+  position:relative;
+  overflow-y: hidden;
+}
+
+header{
+  background:yellow;
+  height:8vh;
+  color:gray;
+}
+
+h1{
+  line-height: 8vh;
+  width:30%;
+  font-size:23px;
+}
+
+#choices{
+  vertical-align: text-top;
+}
+
+#logout{
+  line-height: 8vh;
+  /* position: relative;
+  left: 400px; */
+  text-align: right;
+  cursor: pointer;
+}
+
+#logout i{
+  top: 5px;
+  position: relative;
+  font-size: 35px;
+}
+
+.header_container{
+  display: flex;
+  width:80%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.btn{
+  font-weight: normal;
+  display: inline-block;
+  font-size:15px;
+  padding:2px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: underline;
+  color:blue;
+}
+
+.show_container{
+  width:90%;
+  margin: 0 auto;
+  padding:10px 0;
+}
+
+
+main{
+  width:90%;
+  margin:0 auto;
+  height:82vh;
+  overflow-y: scroll;
+  background-image:url(../img/noimg.gif) ;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+}
+
+#show{
+  text-align: center;
+  height:0vh;
+  /* display: inline; */
+  /* width:70%;
+  margin:0 auto; */
+}
+
+#show img{
+  width:100vh;
+  height:82vh;
+
+}
+
+
+
+footer{
+  background:gray;
+  height:10vh;
+  position:relative;
+  bottom:0;
+}
+
+input, textarea{
+  border: none;
+}
+
+
+.input_wrapper{
+  display: flex;
+  width:100%;
+  padding:24px 0;
+  width: 92%;
+  margin: 0 auto;
+}
+
+#name{
+  width:90%;
+  font-size:18px;
+  padding:5px;
+}
+
+#text{
+  width:100%;
+  font-size:18px;
+  padding:5px;
+  
+}
+
+#send{
+  text-align: center;
+  width:90%;
+  /* background:rgb(214, 213, 213); */
+  font-size:40px;
+  padding:5px;
+  margin-left:10px;
+  position: relative;
+  top: -14px;
+  color: white;
+  cursor: pointer;
+}
+
+.modal{
+  background:rgb(228, 227, 227);
+  border-radius: 5px;
+  width:50%;
+  margin:0 auto;
+  position: absolute;
+  top: 120px;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  box-shadow: 0px 5px 10px gray;
+}
+
+.modal_input{
+  display:flex;
+  flex-direction: column;
+  width:80%;
+  margin:auto;
+  /* padding:20px; */
+
+}
+
+.modal_input input{
+    font-size: 18px;
+    padding:5px;
+    margin:5px 0;
+}
+
+.modal_btn{
+  display: flex;
+  width:50%;
+  margin:auto;
+ justify-content: center;
+}
+
+.modal_btn div{
+  margin:5px;
+  padding:5px;
+  text-align: center;
+  width:30%;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px black;
+  cursor: pointer;
+}
+
+.login{
+  background: blue;
+  color:white;
+}
+
+.login:hover{
+  opacity: 0.9;
+}
+
+.signup{
+  color: blue;
+  background:white;
+}
+
+.signup:hover{
+  opacity: 0.9;
+}
+
+.comment-area{
+  font-weight: bold;
+}
+
+@media screen and (max-width:320px) { 
+    *{
+      overflow: hidden;
+    }
+
+    .input_wrapper{
+      position: relative;
+      top:-10px;
+      
+    }
+
+    #text{
+      margin-left: 5px;
+    }
+
+    #send{
+      top:5px;
+      font-size:22px;
+      padding:0;
+      margin:0;
+    }
+}
+@media screen and (min-width:768px) and ( max-width:1024px) {
+    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+p {}
+}
+@media screen and (min-width:1024px) {
+    /*　画面サイズが1024pxからはここを読み込む　*/
+ 
+}

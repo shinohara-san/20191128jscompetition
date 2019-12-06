@@ -1,0 +1,25 @@
+html{
+  background:rgb(202, 200, 200);
+}
+h1{
+    text-align: center;
+    position: relative;
+    top: 85px;
+}
+
+.flex {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    top: 250px;
+}
+
+.flex div{
+  background:blue;
+  border-radius: 50%;
+  padding:20px;
+  color:white;
+  vertical-align: bottom;
+  /* visibility: hidden; */
+  font-size:22px;
+}

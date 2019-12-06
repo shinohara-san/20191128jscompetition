@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Digital World Trip</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id ="first_window">
+      <div class="where"><strong>Where do you want to travel?</strong></div>
+      <input type="text" id="input">
+      <div id="btn" class="fadeOutBtn">Click</div>
+    </div>
+    <img id="bigPic" src="http://www.life-good.jp/wp/wp-content/uploads/2018/01/55e25798c9c8e6b02e5d01ec21e03065_m-1024x678.jpg" alt="">
+    <header>
+      <div class="search_container">
+       
+        <!-- <input type="text" id="input">
+        <div id="btn">Click</div> -->
+        <div class="info">
+          <!-- <div id="time"></div> -->
+          <div class="weather_flex">
+            <div id="icon"><img id="wicon" src="" alt=""></div>
+            <div id="weather"></div>
+          </div>
+          <div id="cel"></div>
+        </div>
+      </div>
+    </header>
+    
+    <div class="main_container">
+      <div class="section_title">Map</div>
+      <div id="show">
+        <div id="map"></div>
+        <div id="pano""></div>
+      </div>
+    </div>
+    <!-- <hr class="style-five"> -->
+      <div class="section_title youtube">Youtube</div>
+      <div id="video-container" class="slide"></div>
+    <!-- <hr class="style-five"> -->
+      <div class="section_title">food</div>
+      <div id="food" class="slide"></div>
+    <!-- </div> -->
+    <footer>
+
+        <div class="footer_logo">Supported by</div>
+
+      <div class="footer_container">
+          <a href="https://gsacademy.tokyo/" target="_blank">
+            <img src="img/gs.png" width="200" height="65" border="0" alt="ジーズ">
+          </a>
+          <a href="https://openweathermap.org/api" target="_blank">
+              <img src="img/openweather.png" width="200" height="65" border="0" alt="オープンウェザーAPI">
+          </a>    
+          <a href="https://cloud.google.com/maps-platform/?hl=ja&utm_source=google&utm_medium=cpc&utm_campaign=FY18-Q2-global-demandgen-paidsearchonnetworkhouseads-cs-maps_contactsal_saf&utm_content=text-ad-none-none-DEV_c-CRE_320617583943-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+~+Google+Maps+API+EXA-KWID_43700039913979214-kwd-335425467-userloc_1009717&utm_term=KW_google%20maps%20api-ST_google+maps+api&gclid=Cj0KCQiAq97uBRCwARIsADTziyaSpCHsOE8TyABGbNSOF0tYCQOaiosI_Sm9HMhNKGNVPdHvNhBjx4IaAqVOEALw_wcB"
+            target="_blank">
+            <img src="img/google.jpg" width="200" height="65" border="0" alt="グーグルAPI">
+          </a>
+          <a href="https://developers.google.com/youtube/v3?hl=JA" target="_blank">
+            <img src="img/youtube.jpeg" width="200" height="65" border="0" alt="ユーチューブAPI">
+          </a>
+          <a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
+            <img src="https://api.gnavi.co.jp/api/img/credit/api_265_65.gif" width="200" height="65" border="0"
+              alt="グルメ情報検索サイト ぐるなび">
+          </a>
+      </div>
+    </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBILh5OBPethAGwAYYtvftskjvkuTvBIgs" async
+      defer></script>
+  <script src="js/main.js"></script>
+  </body>
+</html>

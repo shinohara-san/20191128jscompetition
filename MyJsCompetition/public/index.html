@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Firebase Revenge</title>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/revenge.css">
+  </head>
+  <body>
+    
+    <header>
+      <div class="header_container">
+      <h1 id="chat_name">
+      
+          {{ chat_name }} Chat
+          <input type="text" v-model="chat_name">
+      </h1>
+      
+      <div class="show_container hide">
+       
+        <label for="picture"></label>
+        <input type="file" id="fileButton" style="width: 184px;">
+        <progress value="0" max="100" id="uploader" style="vertical-align: bottom;">0%</progress>
+        <br>
+        <label for="picture"></label>
+        <select name="choices" id="choices"></select>
+        <div id="download" class="btn">画像表示</div>
+        <div id="dataDelete" class="btn">画像削除</div>
+          <div id="deleteAll" class="btn">チャット削除</div>
+      </div>
+      
+        
+        <div id="logout" class="hide"><i class="fas fa-sign-out-alt"></i></div>
+        <!-- <div id="signup" class="btn">signup</div> -->
+      
+      </div>
+    </header>
+        <div class="modal">
+          <div class="modal_input">
+            <input type="email" placeholder="email" id="txtEmail" autocomplete="dummy-jA4f-FJvG-DufF-rGmA">
+            <input type="password" placeholder="password" id="txtPassword">
+          </div>
+          <div class="modal_btn">
+            <div class="login" id="btnLogin">Login</div>
+            <div class="signup" id="btnSignup">Signup</div>
+          </div>
+        </div>
+    
+        <div id="show" class="hide">
+          <!-- <img src="img/noimg.gif" alt="" class="downloadedImg"> -->
+        </div>
+    
+      <main>
+        <div id="output" class="hide"></div>
+
+        
+      
+    </main>
+    <footer>
+          <div class="input_wrapper hide">
+            <div style="width:30%;">
+              <input type="text" id="name" placeholder="name" style="border-radius: 5px;"  v-model="chat_name">
+             
+            </div>
+            <div style="width:60%;" >
+              <input  id="text" placeholder="message" style="border-radius: 5px;" >
+            </div>
+            <div style="width:10%; margin-left:10px; ">
+                <div id="send" style="border-radius: 5px;">
+                  <i class="far fa-paper-plane"></i>
+                </div>
+            </div>
+          </div>
+        </footer>
+  
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script>
+
+      // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDLbZAnQWM_IIdFPwinK4y-_UirQkmIm9g",
+        authDomain: "my-js-competition.firebaseapp.com",
+        databaseURL: "https://my-js-competition.firebaseio.com",
+        projectId: "my-js-competition",
+        storageBucket: "my-js-competition.appspot.com",
+        messagingSenderId: "276118307675",
+        appId: "1:276118307675:web:c6b65fc52fd8e1473d107e",
+        measurementId: "G-XTTDS7Y1Q8"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+      const txtEmail = document.getElementById('txtEmail');
+      const txtPassword = document.getElementById('txtPassword');
+      const btnLogin = document.getElementById('btnLogin');
+      const btnSignup = document.getElementById('btnSignup');
+      const btnLogout = document.getElementById('logout');
+     
+      btnLogin.addEventListener('click', e => {
+        const email = txtEmail.value;
+        const pass = txtPassword.value;
+        const auth = firebase.auth();
+
+        const promise = auth.signInWithEmailAndPassword(email, pass);
+
+        console.log('Logged in successfully');
+        $('#txtEmail').val('');
+        $('#txtPassword').val('');
+        promise.catch(e => console.log(e.message));
+      });
+
+      btnSignup.addEventListener('click', e => {
+        const email = txtEmail.value;
+        const pass = txtPassword.value;
+        const auth = firebase.auth();
+
+        const promise = auth.createUserWithEmailAndPassword(email, pass);
+        console.log('Signed up successfully');
+        $('#txtEmail').val('');
+        $('#txtPassword').val('');
+        promise.catch(e => console.log(e.message));
+      });
+
+      btnLogout.addEventListener('click', e=>{
+        firebase.auth().signOut();
+      });
+
+      firebase.auth().onAuthStateChanged(firebaseUser =>{
+        if(firebaseUser){
+          console.log(firebaseUser);
+          $('.modal').addClass('hide');
+          $('#logout').removeClass('hide');
+          $('.show_container').removeClass('hide');
+          $('#show').removeClass('hide');
+          $('#output').removeClass('hide');
+          $('.input_wrapper').removeClass('hide');
+          $('main').removeClass('hide');
+        }else{
+          console.log('not logged in');
+          $('.modal').removeClass('hide');
+          $('#logout').addClass('hide');
+          $('.show_container').addClass('hide');
+          $('#show').addClass('hide');
+          $('#output').addClass('hide');
+          $('.input_wrapper').addClass('hide');
+          $('main').addClass('hide');
+        }
+      });
+      
+      
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/vue.js"></script>
+    <script src = "js/revenge.js"></script>
+   
+  </body>
+</html>

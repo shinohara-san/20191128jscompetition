@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>sample</title>
+</head>
+
+<body>
+  <h1>Vue Practice</h1>
+  <div id="app">
+    Hello {{ name }}!
+    <p><input type="text" v-model="name"></p>
+  </div>
+
+<hr>
+
+  <div id="counter">
+    <p v-on:click="countUp">{{ count }} いいね</p>
+    <!-- <button v-on:click="countUp">Click</button> -->
+  </div>
+
+<hr>
+
+  <div id="text">
+    <textarea v-model="myText"></textarea>
+    <p>{{ myText }}</p>
+    <p>文字数は{{ myText.length }}です</p>
+  </div>
+
+<hr>
+
+  <div id="important">
+    <label for=""><input type="checkbox" value="Money" v-model="myChecks">お金</label><br>
+    <label for=""><input type="checkbox" value="Love" v-model="myChecks">愛</label><br>
+    <label for=""><input type="checkbox" value="Peace" v-model="myChecks">平和</label><br>
+    選択したのは、{{myChecks}}
+  </div>
+
+<hr>
+
+  <div id="sendBtn">
+    チェック入れたら送信できる
+    <label for=""><input type="checkbox" v-model="myAgree"></label>
+    <button v-bind:disabled="myAgree==false">送信</button>
+  </div>
+
+<hr>
+
+  <div id="picChange">
+    <label for="">
+      <input type="radio" value="http://www.flamme.co.jp/images/kasumi_arimura20190213.jpg" v-model="fileName">有村架純
+    </label><br>
+    <label for="">
+      <input type="radio" value="https://e-talentbank.co.jp/wp-content/uploads/2019/10/9df03e59efbada79c6df6a3bdedb05f5.jpg" v-model="fileName">白石麻衣
+    </label><br>
+    <!-- <p>{{ fileName }}を選択</p> -->
+    <img v-bind:src="fileName"></img>
+
+  </div>
+<hr>
+<div id="list">
+  <ul>
+    <li v-for="item in myArray">{{ item }}</li>
+  </ul>
+</div>
+<hr>
+<div id="more_list">
+  <ul>
+    <li v-for="item in objArray">{{item.name}} ${{item.price}}</li>
+  </ul>
+
+</div>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="hello_vue.js"></script>
+</body>
+
+</html>
