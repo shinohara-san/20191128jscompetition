@@ -1,5 +1,9 @@
 $('.fadeOutBtn').on('click', function () {
-  $('#bigPic').fadeOut(3000);
+  const input = $('input').val();
+  if (!input) {
+    return;
+  };
+  $('#bigPic').fadeOut(2000);
   $('html, body').animate({ scrollTop: 0 });
   $('#first_window').fadeOut(3000);
 });
@@ -11,7 +15,7 @@ $('#btn').on('click', function () {
   if (!input) {
     return;
   };
-  const url = `https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=b0c52aa4269b785f3a299e06a7d83548&freeword=${input}`;
+  const url = `https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=4735d6b4e2d5ba4ee55bb548d6c2494b&freeword=${input}`;
  
   $.getJSON(url)
     .done(function (data) {
@@ -43,7 +47,10 @@ $('#btn').on('click', function () {
 // // セクションタイトル
 // ーーーーーーーーーーーーーーーーーーーーーーーーーーー
 $('#btn').on('click', function () {
+  const input = $('input').val();
   $('.section_title').fadeIn(2000);
+  // $('.section_title').val(input)
+  $('.header_title').html(`あなたは今${input}を旅行しています`)
 })
 
 
@@ -142,7 +149,7 @@ $('#btn').on('click', function () {
   $.ajax({
     type: "get",
     dataType: "jsonp",
-    url: "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=" + input + "&key=AIzaSyBILh5OBPethAGwAYYtvftskjvkuTvBIgs"
+    url: "https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=" + input + "&key=AIzaSyB0WQFJLig57CUNc9sB5S4trDol_Bs1vEg"
   }).done(function (evt) {
     console.log(evt);
     // console.log(evt.items[0].id.videoId);
